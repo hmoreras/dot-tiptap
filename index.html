@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dot TipTap</title>
+    <link rel="stylesheet" href="styles/main.css">
+
+</head>
+<body>
+    <div class="dot-editor-container">
+        <div class="dot-editor-buttons">
+            <button onclick="dotActions.toggleBold()">Bold</button>
+            <button onclick="dotActions.toggleItalic()">Underline</button>
+            <button onclick="dotActions.toggleStrike()">Strike</button>
+            <button onclick="dotActions.toggleHeading(1)">h1</button>
+            <button onclick="dotActions.toggleHeading(3)">h3</button>
+            <button onclick="dotActions.toggleHeading(5)">h5</button>
+            <button onclick="dotActions.undo()">Undo</button>
+            <button onclick="dotActions.redo()">Redo</button>
+        </div>
+        <div class="dot-editor-host"></div>
+    </div>
+    <script src="./js/init-editor.ts"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+
+body {
+  font-family: Arial;
+}
+
+.dot-editor-container {
+  margin: 20px;
+}
+
+.dot-editor-host {
+  border: 1px solid #000;
+  border-radius: 3px;
+  padding: 5px;
+}
+
+.dot-editor-buttons {
+  margin-bottom: 5px;
+}
+
+
+p {
+  margin: 0;
+}
