@@ -24281,6 +24281,11 @@ function defaultExtensions(options) {
 },{"@tiptap/extension-dropcursor":"node_modules/@tiptap/extension-dropcursor/dist/tiptap-extension-dropcursor.esm.js","@tiptap/extension-gapcursor":"node_modules/@tiptap/extension-gapcursor/dist/tiptap-extension-gapcursor.esm.js","@tiptap/extension-document":"node_modules/@tiptap/extension-document/dist/tiptap-extension-document.esm.js","@tiptap/extension-paragraph":"node_modules/@tiptap/extension-paragraph/dist/tiptap-extension-paragraph.esm.js","@tiptap/extension-text":"node_modules/@tiptap/extension-text/dist/tiptap-extension-text.esm.js","@tiptap/extension-history":"node_modules/@tiptap/extension-history/dist/tiptap-extension-history.esm.js","@tiptap/extension-bold":"node_modules/@tiptap/extension-bold/dist/tiptap-extension-bold.esm.js","@tiptap/extension-italic":"node_modules/@tiptap/extension-italic/dist/tiptap-extension-italic.esm.js","@tiptap/extension-code":"node_modules/@tiptap/extension-code/dist/tiptap-extension-code.esm.js","@tiptap/extension-code-block":"node_modules/@tiptap/extension-code-block/dist/tiptap-extension-code-block.esm.js","@tiptap/extension-heading":"node_modules/@tiptap/extension-heading/dist/tiptap-extension-heading.esm.js","@tiptap/extension-hard-break":"node_modules/@tiptap/extension-hard-break/dist/tiptap-extension-hard-break.esm.js","@tiptap/extension-strike":"node_modules/@tiptap/extension-strike/dist/tiptap-extension-strike.esm.js","@tiptap/extension-blockquote":"node_modules/@tiptap/extension-blockquote/dist/tiptap-extension-blockquote.esm.js","@tiptap/extension-horizontal-rule":"node_modules/@tiptap/extension-horizontal-rule/dist/tiptap-extension-horizontal-rule.esm.js","@tiptap/extension-bullet-list":"node_modules/@tiptap/extension-bullet-list/dist/tiptap-extension-bullet-list.esm.js","@tiptap/extension-ordered-list":"node_modules/@tiptap/extension-ordered-list/dist/tiptap-extension-ordered-list.esm.js","@tiptap/extension-list-item":"node_modules/@tiptap/extension-list-item/dist/tiptap-extension-list-item.esm.js"}],"js/init-editor.ts":[function(require,module,exports) {
 "use strict";
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.dotTest = exports.DotEditor = void 0;
+
 var _core = require("@tiptap/core");
 
 var _starterKit = require("@tiptap/starter-kit");
@@ -24297,34 +24302,47 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToAr
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
-var element = document.querySelector('.dot-editor-host');
-window.editor = new _core.Editor({
-  element: element,
-  extensions: _toConsumableArray((0, _starterKit.defaultExtensions)()),
-  content: '<p>Initial Content </p>'
-});
-window.dotActions = {
-  toggleBold: function toggleBold() {
-    editor.chain().focus().toggleBold().run();
-  },
-  toggleItalic: function toggleItalic() {
-    editor.chain().focus().toggleItalic().run();
-  },
-  toggleStrike: function toggleStrike() {
-    editor.chain().focus().toggleStrike().run();
-  },
-  toggleHeading: function toggleHeading(level) {
-    editor.chain().focus().toggleHeading({
-      level: level
-    }).run();
-  },
-  undo: function undo() {
-    editor.chain().focus().undo().run();
-  },
-  redo: function redo() {
-    editor.chain().focus().red().run();
-  }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var DotEditor = function DotEditor() {
+  var _this = this;
+
+  _classCallCheck(this, DotEditor);
+
+  this.dotActions = {
+    toggleBold: function toggleBold() {
+      _this.editor.chain().focus().toggleBold().run();
+    },
+    toggleItalic: function toggleItalic() {
+      _this.editor.chain().focus().toggleItalic().run();
+    },
+    toggleStrike: function toggleStrike() {
+      _this.editor.chain().focus().toggleStrike().run();
+    },
+    toggleHeading: function toggleHeading(level) {
+      _this.editor.chain().focus().toggleHeading({
+        level: level
+      }).run();
+    },
+    undo: function undo() {
+      _this.editor.chain().focus().undo().run();
+    },
+    redo: function redo() {
+      _this.editor.chain().focus().red().run();
+    }
+  };
+  console.log('init');
+  this.element = document.querySelector('.dot-editor-host');
+  this.editor = new _core.Editor({
+    element: this.element,
+    extensions: _toConsumableArray((0, _starterKit.defaultExtensions)()),
+    content: '<p>Dot Editor Initial Content</p>'
+  });
 };
+
+exports.DotEditor = DotEditor;
+var dotTest = new DotEditor();
+exports.dotTest = dotTest;
 },{"@tiptap/core":"node_modules/@tiptap/core/dist/tiptap-core.esm.js","@tiptap/starter-kit":"node_modules/@tiptap/starter-kit/dist/tiptap-starter-kit.esm.js"}],"../../.nvm/versions/node/v12.18.4/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -24353,7 +24371,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52788" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51144" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -24529,5 +24547,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../.nvm/versions/node/v12.18.4/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/init-editor.ts"], null)
+},{}]},{},["../../.nvm/versions/node/v12.18.4/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/init-editor.ts"], "dotTest")
 //# sourceMappingURL=/init-editor.1f36d7fc.js.map
